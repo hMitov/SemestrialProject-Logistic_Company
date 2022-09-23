@@ -12,7 +12,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "client")
+@Table(name = "Client")
 public class Client {
 
     @Id
@@ -30,5 +30,11 @@ public class Client {
 
     @OneToMany(mappedBy = "receiver")
     private Set<Shipment> receivedShipments;
+
+    public Client(String telephone, String firstName, String lastName) {
+        this.telephone = telephone;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
 }
