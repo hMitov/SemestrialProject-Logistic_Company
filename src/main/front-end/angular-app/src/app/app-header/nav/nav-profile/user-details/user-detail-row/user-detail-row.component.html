@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-sm-3">
+    <p class="mb-0">{{parentControlHeader}}</p>
+  </div>
+  <div class="col-sm-9">
+    <div class="row ">
+      <div class="col-1">
+        <button class="border-0 bg-white" (click)="updateControl()">
+          <ng-container *ngIf="!ableForUpdate else enterChangesIcon">
+            <i class="bi bi-wrench-adjustable p-0 m-0"></i>
+          </ng-container>
+          <ng-template #enterChangesIcon>
+            <i class="bi bi-check p-0 m-0"></i>
+          </ng-template>
+        </button>
+      </div>
+      <div class="col-6">
+        <ng-container *ngIf="!ableForUpdate else unlockedForCorrection">
+          {{parentFormControlName.value}}
+        </ng-container>
+        <ng-template #unlockedForCorrection>
+          <input
+            type="text"
+            class="text-muted mb-0"
+            [formControl]="parentFormControlName">
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+

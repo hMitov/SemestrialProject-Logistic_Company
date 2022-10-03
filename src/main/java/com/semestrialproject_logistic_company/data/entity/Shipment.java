@@ -20,19 +20,19 @@ public class Shipment implements Comparable<Shipment> {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "senderId")
-    private Client sender;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sender_id")
+    private Sender sender;
 
-    @ManyToOne
-    @JoinColumn(name = "receiverId")
-    private Client receiver;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "receiver_id")
+    private Sender receiver;
 
     @Column(name = "status")
-    private boolean delivered;
+    private boolean isDelivered;
 
-    @ManyToOne
-    @JoinColumn(name ="registeredByEmployee")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "registered_by_employee")
     private OfficeEmployee registrant;
 
     @Override
@@ -40,4 +40,16 @@ public class Shipment implements Comparable<Shipment> {
         return Long.compare(this.shipmentId, shipment.shipmentId);
     }
 
+
+    @Override
+    public String toString() {
+        return "Shipment{" +
+                "shipmentId=" + shipmentId +
+                ", name='" + name + '\'' +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", isDelivered=" + isDelivered +
+                ", registrant=" + registrant +
+                '}';
+    }
 }

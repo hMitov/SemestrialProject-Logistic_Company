@@ -1,12 +1,18 @@
 package com.semestrialproject_logistic_company.services.implementations;
 
 import com.semestrialproject_logistic_company.data.entity.Shipment;
+import com.semestrialproject_logistic_company.data.projections.ShipmentApi;
 import com.semestrialproject_logistic_company.data.repository.ShipmentRepository;
+import com.semestrialproject_logistic_company.services.ShipmentService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class ShipmentServiceImpl {
+import java.util.List;
+
+@Service
+@AllArgsConstructor
+public class ShipmentServiceImpl implements ShipmentService {
 
     @Autowired
     private ShipmentRepository shipmentRepository;
@@ -15,8 +21,12 @@ public class ShipmentServiceImpl {
         return this.shipmentRepository.saveAndFlush(shipment);
     }
 
-    public Shipment getShipment(Long id) {
-        return this.shipmentRepository.findByShipmentId(id);
+    public ShipmentApi getShipment(Long id) {
+        return this.shipmentRepository.findShipmentsByShipmentId(id);
+    }
+
+    public List<ShipmentApi> getShipments() {
+        return this.shipmentRepository.findAllBy();
     }
 
 }

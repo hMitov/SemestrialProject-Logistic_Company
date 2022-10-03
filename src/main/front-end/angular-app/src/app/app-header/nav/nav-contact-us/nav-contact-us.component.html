@@ -1,0 +1,92 @@
+<div class="container pt-5 mt-5">
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <div class="row">
+            <div class="col-6">
+              <input type="text"
+                     class="form-control"
+                     id="firstName"
+                     formControlName="firstName"
+                     placeholder="Your first name">
+              <span style="color: red;" *ngIf="!contactForm.get('firstName').valid &&
+                                                contactForm.get('firstName').touched">
+                <span *ngIf="contactForm.get('firstName').errors['required']">*Please enter your first name!</span>
+              </span>
+            </div>
+            <div class="col-6">
+              <input type="text"
+                     class="form-control"
+                     id="lastName"
+                     formControlName="lastName"
+                     placeholder="Your last name">
+              <span style="color: red;" *ngIf="!contactForm.get('lastName').valid &&
+                                                contactForm.get('lastName').touched">
+                <span *ngIf="contactForm.get('lastName').errors['required']">*Please enter your last name!</span>
+              </span>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12">
+              <input type="email"
+                     class="form-control"
+                     id="email"
+                     formControlName="email"
+                     placeholder="Your email">
+              <span style="color: red;" *ngIf="!contactForm.get('email').valid &&
+                                                contactForm.get('email').touched">
+                <span *ngIf="contactForm.get('email').errors['email']">*Please enter a valid email!</span>
+                <span *ngIf="contactForm.get('email').errors['required']">*Please fill in your email!</span>
+              </span>
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-12">
+              <input type="text"
+                     class="form-control"
+                     id="regarding"
+                     formControlName="regarding"
+                     placeholder="Re:">
+              <span style="color: red;" *ngIf="!contactForm.get('regarding').valid &&
+                                                contactForm.get('regarding').touched">
+                <span *ngIf="contactForm.get('regarding').errors['required']">*Please fill in the re field!</span>
+              </span>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control"
+                      id="message" rows="8"
+                      formControlName="message"
+                      placeholder="Message">
+            </textarea>
+            <span style="color: red;" *ngIf="!contactForm.get('message').valid &&
+                                              contactForm.get('message').touched">
+                <span *ngIf="contactForm.get('message').errors['required']">*Please enter your message!</span>
+              </span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!contactForm.valid">Save</button>
+      </form>
+    </div>
+    <div class="col-md-5">
+      <div class="container p-5 bg-info text-white rounded-2">
+        <div class="row">
+          <div class="col-1"><i class="bi bi-geo-alt-fill"></i></div>
+          <div class="col-8"><h5>Address: </h5></div>
+        </div>
+        <p>Sofia, Aleksandar Stamboliiski 5</p>
+        <div class="row">
+          <div class="col-1"><i class="bi bi-telephone-fill"></i></div>
+          <div class="col-8"><h5>Telephone: </h5></div>
+          <p>+359876256250</p>
+        </div>
+        <div class="row">
+          <div class="col-1"><i class="bi bi-envelope-fill"></i></div>
+          <div class="col-4"><h5>E-mail: </h5></div>
+          <p>fastdelivery@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
