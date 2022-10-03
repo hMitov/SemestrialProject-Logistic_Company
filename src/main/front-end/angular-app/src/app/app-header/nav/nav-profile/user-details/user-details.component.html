@@ -1,0 +1,8 @@
+<form [formGroup]="userForm">
+  <div class="card mb-4">
+    <div *ngFor="let control of rowControls; index as i" class="card-body">
+      <app-user-detail-row [parentControlKey]="control" [parentControlHeader]="rowNames[i]" ></app-user-detail-row>
+
+    </div>
+  </div>
+</form>
