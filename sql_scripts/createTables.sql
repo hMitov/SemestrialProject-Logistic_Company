@@ -14,48 +14,26 @@ drop table Carrier;
 
 
 
-create table Sender
+create table Client
 (
     telephone  VARCHAR(30) PRIMARY KEY NOT NULL,
     first_name VARCHAR(30)             NOT NULL,
-    last_name  VARCHAR(30)             NOT NULL,
-    city       VARCHAR(30),
-    address    VARCHAR(30),
-    email      VARCHAR(30)
+    last_name  VARCHAR(30)             NOT NULL
 );
-drop table Sender;
-
-
-
-
-create table Recipient
-(
-    telephone  VARCHAR(30) PRIMARY KEY NOT NULL,
-    first_name VARCHAR(30)             NOT NULL,
-    last_name  VARCHAR(30)             NOT NULL,
-    city       VARCHAR(30),
-    address    VARCHAR(30)             NOT NULL,
-    email      VARCHAR(30)             NOT NULL
-);
-drop table Recipient;
-
+drop table Client;
 
 
 
 create table Shipment
 (
     shipment_id            INT PRIMARY KEY,
-    city                   VARCHAR(30) NOT NULL,
-    toOffice               BOOLEAN     NOT NULL,
-    toAddress              BOOLEAN     NOT NULL,
-    isProcessed            BOOLEAN     NOT NULL,
-    isDelivered            BOOLEAN     NOT NULL,
-    weight                 DOUBLE      NOT NULL,
-    sender_telephone       VARCHAR(30) NOT NULL,
-    recipient_telephone    VARCHAR(30) NOT NULL,
-    registered_by_employee VARCHAR(30),
-    FOREIGN KEY (sender_telephone) references Sender (telephone),
-    FOREIGN KEY (recipient_telephone) references Recipient (telephone)
+    name                   VARCHAR(30) NOT NULL,
+    sender_id              VARCHAR(30) NOT NULL,
+    receiver_id            VARCHAR(30) NOT NULL,
+    status                 BOOLEAN,
+    registered_by_employee VARCHAR(30) NOT NULL,
+    FOREIGN KEY Shipment (receiver_id) references Client (telephone),
+    FOREIGN KEY Shipment (receiver_id) references Client (telephone)
 );
 drop table Shipment;
 

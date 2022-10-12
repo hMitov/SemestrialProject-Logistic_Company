@@ -17,31 +17,19 @@ public class Shipment implements Comparable<Shipment> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long shipmentId;
 
-    @Column(name = "city")
-    private String city;
-
-    @Column(name = "toOffice")
-    private boolean toOffice;
-
-    @Column(name = "toAddress")
-    private boolean toAddress;
-
-    @Column(name = "isProcessed")
-    private boolean isProcessed;
-
-    @Column(name = "status")
-    private boolean isDelivered;
-
-    @Column(name = "weight")
-    private Double weight;
+    @Column(name = "name")
+    private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sender_telephone")
+    @JoinColumn(name = "sender_id")
     private Sender sender;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "recipient_telephone")
-    private Recipient recipient;
+    @JoinColumn(name = "receiver_id")
+    private Sender receiver;
+
+    @Column(name = "status")
+    private boolean isDelivered;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "registered_by_employee")
@@ -52,4 +40,16 @@ public class Shipment implements Comparable<Shipment> {
         return Long.compare(this.shipmentId, shipment.shipmentId);
     }
 
+
+    @Override
+    public String toString() {
+        return "Shipment{" +
+                "shipmentId=" + shipmentId +
+                ", name='" + name + '\'' +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", isDelivered=" + isDelivered +
+                ", registrant=" + registrant +
+                '}';
+    }
 }

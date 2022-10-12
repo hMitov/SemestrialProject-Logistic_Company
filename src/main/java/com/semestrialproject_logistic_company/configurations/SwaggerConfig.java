@@ -1,4 +1,4 @@
-package com.semestrialproject_logistic_company.config;
+package com.semestrialproject_logistic_company.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

@@ -1,4 +1,4 @@
-package com.semestrialproject_logistic_company.config;
+package com.semestrialproject_logistic_company.configurations;
 
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
@@ -12,7 +12,7 @@ public class UpdateSwaggerClasses {
         String url = "http://localhost:8080/v2/api-docs";
 
         try {
-                downloadUsingStream(url, "D:/Programing Java/Java 2 part/SemestrialProject-Logistic_Company/api-docs.json");
+            downloadUsingStream(url, "D:/Programing Java/Java 2 part/SemestrialProject-Logistic_Company/api-docs.json");
         } catch (IOException e) {
             e.printStackTrace();
         }

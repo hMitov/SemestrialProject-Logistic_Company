@@ -1,3 +1,2 @@
-export * from './recipientApi';
-export * from './senderApi';
+export * from './clientApi';
 export * from './shipmentApi';

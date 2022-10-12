@@ -13,21 +13,38 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "Sender")
-public class Sender extends BaseClient {
+public class Sender {
 
     @Id
     @Column(name = "telephone")
     private String telephone;
 
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "company")
+    private String company;
+
     @Column(name = "email")
     private String email;
+
+    private boolean office;
+
+    private boolean address;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "sender")
     private Set<Shipment> sendShipments;
 
-    public Sender(String firstName, String lastName, String address, String telephone, String email) {
-        super(firstName, lastName, address);
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "receiver")
+    private Set<Shipment> receivedShipments;
+
+    public Sender(String telephone, String firstName, String lastName) {
         this.telephone = telephone;
-        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
+
 }
