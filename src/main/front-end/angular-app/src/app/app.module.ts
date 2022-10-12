@@ -15,6 +15,7 @@ import { ShipmentSenderComponent } from './app-header/nav/nav-create-shipment/sh
 import { NavProfileComponent } from './app-header/nav/nav-profile/nav-profile.component';
 import { UserDetailsComponent } from './app-header/nav/nav-profile/user-details/user-details.component';
 import { UserDetailRowComponent } from './app-header/nav/nav-profile/user-details/user-detail-row/user-detail-row.component';
+import {AgGridModule} from "ag-grid-angular";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UserDetailRowComponent } from './app-header/nav/nav-profile/user-detail
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

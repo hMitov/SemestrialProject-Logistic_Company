@@ -14,6 +14,16 @@
       <div class="col-lg-8">
         <app-user-details></app-user-details>
       </div>
+      <div class="container">
+        <ag-grid-angular [columnDefs]="columnDefs"
+                         [defaultColDef]="defaultColDef"
+                         [rowData]="rowData$ | async"
+                         [rowSelection]="'multiple'"
+                         [animateRows]="true"
+                         (gridReady)="onGridReady($event)"
+                         (cellClicked)="onCellClicked($event)">
+        </ag-grid-angular>
+      </div>
     </div>
   </div>
 </div>

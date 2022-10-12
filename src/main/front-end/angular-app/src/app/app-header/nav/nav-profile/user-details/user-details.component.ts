@@ -1,5 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CellClickedEvent, ColDef, GridReadyEvent} from 'ag-grid-community';
+import {Observable} from 'rxjs';
+import {AgGridAngular} from "ag-grid-angular";
 
 @Component({
   selector: 'app-user-details',
@@ -10,6 +13,20 @@ export class UserDetailsComponent implements OnInit {
   userForm: FormGroup;
   rowNames: string[] = ['First Name', 'Last Name', 'Email', 'Telephone', 'Address'];
   rowControls: string[] = [];
+  public rowData$!: Observable<any[]>;
+  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
+
+
+  public columnDefs: ColDef[] = [
+    {field: 'make'},
+    {field: 'model'},
+    {field: 'price'}
+  ];
+
+  public defaultColDef: ColDef = {
+    sortable: true,
+    filter: true,
+  };
 
   constructor() {
   }
@@ -35,6 +52,18 @@ export class UserDetailsComponent implements OnInit {
         this.rowControls.push(key);
       }
     });
+  }
+
+  onGridReady(params: GridReadyEvent) {
+
+  }
+
+  onCellClicked(e: CellClickedEvent): void {
+    console.log('cellClicked', e);
+  }
+
+  clearSelection(): void {
+    this.agGrid.api.deselectAll();
   }
 
 
