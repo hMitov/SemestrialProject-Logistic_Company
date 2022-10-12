@@ -31,5 +31,4 @@ public class ClientController {
     public List<ClientApi> getClients() {
         return clientService.getClients();
     }
-
 }
