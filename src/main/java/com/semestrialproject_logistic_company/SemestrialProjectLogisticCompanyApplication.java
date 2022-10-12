@@ -1,16 +1,12 @@
 package com.semestrialproject_logistic_company;
 
-import com.semestrialproject_logistic_company.configurations.UpdateSwaggerClasses;
+import com.semestrialproject_logistic_company.config.UpdateSwaggerClasses;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
-import static java.util.Optional.of;
 import static java.util.Optional.ofNullable;
 
 @SpringBootApplication
@@ -34,5 +30,4 @@ public class SemestrialProjectLogisticCompanyApplication {
         SpringApplication.run(SemestrialProjectLogisticCompanyApplication.class, args);
         UpdateSwaggerClasses.run();
     }
-
 }
