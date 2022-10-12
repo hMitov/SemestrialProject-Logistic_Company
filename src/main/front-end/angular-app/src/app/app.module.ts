@@ -9,13 +9,20 @@ import {NavDeliveryServicesComponent} from './app-header/nav/nav-delivery-servic
 import {NavOfficesComponent} from './app-header/nav/nav-offices/nav-offices.component';
 import {NavContactUsComponent} from './app-header/nav/nav-contact-us/nav-contact-us.component';
 import {NavHomeComponent} from './app-header/nav/nav-home/nav-home.component';
-import {FormGroup, ReactiveFormsModule} from "@angular/forms";
-import { NavCreateShipmentComponent } from './app-header/nav/nav-create-shipment/nav-create-shipment.component';
-import { ShipmentSenderComponent } from './app-header/nav/nav-create-shipment/shipment-sender/shipment-sender.component';
-import { NavProfileComponent } from './app-header/nav/nav-profile/nav-profile.component';
-import { UserDetailsComponent } from './app-header/nav/nav-profile/user-details/user-details.component';
-import { UserDetailRowComponent } from './app-header/nav/nav-profile/user-details/user-detail-row/user-detail-row.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {NavCreateShipmentComponent} from './app-header/nav/nav-create-shipment/nav-create-shipment.component';
+import {ShipmentSenderComponent} from './app-header/nav/nav-create-shipment/shipment-sender/shipment-sender.component';
+import {NavProfileComponent} from './app-header/nav/nav-profile/nav-profile.component';
+import {UserDetailsComponent} from './app-header/nav/nav-profile/user-details/user-details.component';
+import {
+  UserDetailRowComponent
+} from './app-header/nav/nav-profile/user-details/user-detail-row/user-detail-row.component';
 import {AgGridModule} from "ag-grid-angular";
+import {SignInComponent} from './sign/sign-in/sign-in.component';
+import {AuthService} from "./sign/sign-in/auth.service";
+import {SignUpComponent} from './sign/sign-up/sign-up.component';
+import {ShipmentService} from "../angular-client";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -30,15 +37,18 @@ import {AgGridModule} from "ag-grid-angular";
     ShipmentSenderComponent,
     NavProfileComponent,
     UserDetailsComponent,
-    UserDetailRowComponent
+    UserDetailRowComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AgGridModule
+    AgGridModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService, ShipmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

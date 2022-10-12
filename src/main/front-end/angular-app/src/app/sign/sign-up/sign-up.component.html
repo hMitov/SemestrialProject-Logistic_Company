@@ -1,0 +1,24 @@
+<div class="container d-flex justify-content-center mt-5">
+  <div class="row">
+    <div class="col-lg-12 text-center" style="padding-top: 20px;">
+      <div class="container box" style="margin-top: 10px; padding-left: 0px; padding-right: 0px;">
+        <div class="row">
+          <div class="col-6" style="text-align: center;">
+            <form [formGroup]="signUpForm" (ngSubmit)="onClickSubmit(signUpForm.value)"
+                  class="form-signin">
+              <h2>Please sign up</h2>
+              <input type="text" id="email" class="form-control mt-5"
+                     formControlName="email" placeholder="Email" required autofocus>
+              <input type="password" id="inputPassword" class="form-control mt-4"
+                     formControlName="password" placeholder="Password" required>
+              <input type="tel" id="telephone" class="form-control mt-4"
+                     formControlName="telephone" placeholder="Telephone" required>
+              <button class="btn btn-primary mt-5" type="submit">Sign in</button>
+            </form>
+          </div>
+        </div>
+          <h1 class="col mt-5">We are happy to become our member!</h1>
+      </div>
+    </div>
+  </div>
+</div>

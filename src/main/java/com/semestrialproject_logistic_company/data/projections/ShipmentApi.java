@@ -1,9 +1,10 @@
 package com.semestrialproject_logistic_company.data.projections;
 
 public interface ShipmentApi {
+
     Long getShipmentId();
 
-    String getName();
+    SenderApi getSender();
 
-    ClientApi getSender();
+    RecipientApi getRecipient();
 }
