@@ -1,5 +1,3 @@
-export * from './clientController.service';
-import { ClientControllerService } from './clientController.service';
-export * from './shipmentController.service';
-import { ShipmentControllerService } from './shipmentController.service';
-export const APIS = [ClientControllerService, ShipmentControllerService];
+export * from './shipment.service';
+import { ShipmentService } from './shipment.service';
+export const APIS = [ShipmentService];

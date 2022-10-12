@@ -12,20 +12,20 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ClientServiceImpl implements ClientService {
-    @Autowired
-    private ClientRepository clientRepository;
-
-    public Sender saveClient(Sender client) {
-        return this.clientRepository.saveAndFlush(client);
-    }
-
-    public ClientApi getClient(String telephone) {
-        return this.clientRepository.findClientByTelephone(telephone);
-    }
-
-    public List<ClientApi> getClients() {
-        return this.clientRepository.findAllBy();
-    }
+public abstract class ClientServiceImpl implements ClientService {
+//    @Autowired
+//    private ClientRepository clientRepository;
+//
+//    public Sender saveClient(Sender client) {
+//        return this.clientRepository.saveAndFlush(client);
+//    }
+//
+//    public ClientApi getClient(String telephone) {
+//        return this.clientRepository.findClientByTelephone(telephone);
+//    }
+//
+//    public List<ClientApi> getClients() {
+//        return this.clientRepository.findAllBy();
+//    }
 
 }

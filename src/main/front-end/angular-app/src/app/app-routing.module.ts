@@ -7,6 +7,8 @@ import {NavDeliveryServicesComponent} from "./app-header/nav/nav-delivery-servic
 import {NavAboutUsComponent} from "./app-header/nav/nav-about-us/nav-about-us.component";
 import {NavCreateShipmentComponent} from "./app-header/nav/nav-create-shipment/nav-create-shipment.component";
 import {NavProfileComponent} from "./app-header/nav/nav-profile/nav-profile.component";
+import {SignInComponent} from "./sign/sign-in/sign-in.component";
+import {SignUpComponent} from "./sign/sign-up/sign-up.component";
 
 const routes: Routes = [
   {
@@ -41,6 +43,19 @@ const routes: Routes = [
   {
     path: 'profile',
     component: NavProfileComponent
+  },
+  {
+    path: 'sign-in',
+    component: SignInComponent
+  },
+  {
+    path: 'sign-out',
+    redirectTo: '/sign-in',
+    pathMatch: "full"
+  },
+  {
+    path: 'sign-up',
+    component: SignUpComponent
   }
 ];
 

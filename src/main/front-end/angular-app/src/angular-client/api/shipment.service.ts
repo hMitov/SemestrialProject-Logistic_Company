@@ -24,7 +24,7 @@ import { Configuration }                                     from '../configurat
 
 
 @Injectable()
-export class ShipmentControllerService {
+export class ShipmentService {
 
     protected basePath = '//localhost:8080/';
     public defaultHeaders = new HttpHeaders();
@@ -56,19 +56,55 @@ export class ShipmentControllerService {
 
 
     /**
+     * Gets all shipments
+     * 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public getAllShipments(observe?: 'body', reportProgress?: boolean): Observable<Array<ShipmentApi>>;
+    public getAllShipments(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ShipmentApi>>>;
+    public getAllShipments(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ShipmentApi>>>;
+    public getAllShipments(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+
+        let headers = this.defaultHeaders;
+
+        // to determine the Accept header
+        let httpHeaderAccepts: string[] = [
+            '*/*'
+        ];
+        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        if (httpHeaderAcceptSelected != undefined) {
+            headers = headers.set('Accept', httpHeaderAcceptSelected);
+        }
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+        ];
+
+        return this.httpClient.get<Array<ShipmentApi>>(`${this.basePath}/api/shipments`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
      * Gets the shipment with specific id
      * 
      * @param id id
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getShipmentUsingGET(id: number, observe?: 'body', reportProgress?: boolean): Observable<ShipmentApi>;
-    public getShipmentUsingGET(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ShipmentApi>>;
-    public getShipmentUsingGET(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ShipmentApi>>;
-    public getShipmentUsingGET(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getShipment(id: number, observe?: 'body', reportProgress?: boolean): Observable<ShipmentApi>;
+    public getShipment(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ShipmentApi>>;
+    public getShipment(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ShipmentApi>>;
+    public getShipment(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling getShipmentUsingGET.');
+            throw new Error('Required parameter id was null or undefined when calling getShipment.');
         }
 
         let headers = this.defaultHeaders;
@@ -87,42 +123,6 @@ export class ShipmentControllerService {
         ];
 
         return this.httpClient.get<ShipmentApi>(`${this.basePath}/api/shipments/${encodeURIComponent(String(id))}`,
-            {
-                withCredentials: this.configuration.withCredentials,
-                headers: headers,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * getShipments
-     * 
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public getShipmentsUsingGET(observe?: 'body', reportProgress?: boolean): Observable<Array<ShipmentApi>>;
-    public getShipmentsUsingGET(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ShipmentApi>>>;
-    public getShipmentsUsingGET(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ShipmentApi>>>;
-    public getShipmentsUsingGET(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
-
-        let headers = this.defaultHeaders;
-
-        // to determine the Accept header
-        let httpHeaderAccepts: string[] = [
-            '*/*'
-        ];
-        const httpHeaderAcceptSelected: string | undefined = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        if (httpHeaderAcceptSelected != undefined) {
-            headers = headers.set('Accept', httpHeaderAcceptSelected);
-        }
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-        ];
-
-        return this.httpClient.get<Array<ShipmentApi>>(`${this.basePath}/api/shipments`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
