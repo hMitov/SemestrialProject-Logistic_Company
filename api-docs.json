@@ -1,1 +1,28 @@
-{"swagger":"2.0","info":{"description":"RESTful API for Products","version":"1.0","title":"Products REST API","license":{"name":"License"}},"host":"localhost:8080","basePath":"/","tags":[{"name":"shipment","description":"Shipment Controller"}],"paths":{"/api/shipments":{"get":{"tags":["shipment"],"summary":"Gets all shipments","operationId":"getAllShipments","produces":["*/*"],"responses":{"200":{"description":"Shipments","schema":{"type":"array","items":{"$ref":"#/definitions/ShipmentApi"}}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}},"/api/shipments/{id}":{"get":{"tags":["shipment"],"summary":"Gets the shipment with specific id","operationId":"getShipment","produces":["*/*"],"parameters":[{"name":"id","in":"path","description":"id","required":true,"type":"integer","format":"int64"}],"responses":{"200":{"description":"Shipments","schema":{"$ref":"#/definitions/ShipmentApi"}},"401":{"description":"Unauthorized"},"403":{"description":"Forbidden"},"404":{"description":"Not Found"}}}}},"definitions":{"RecipientApi":{"type":"object","properties":{"firstName":{"type":"string"},"lastName":{"type":"string"},"telephone":{"type":"string"}},"title":"RecipientApi"},"SenderApi":{"type":"object","properties":{"firstName":{"type":"string"},"lastName":{"type":"string"},"telephone":{"type":"string"}},"title":"SenderApi"},"ShipmentApi":{"type":"object","properties":{"recipient":{"$ref":"#/definitions/RecipientApi"},"sender":{"$ref":"#/definitions/SenderApi"},"shipmentId":{"type":"integer","format":"int64"}},"title":"ShipmentApi"}}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+  </head>
+  <body>
+     <div class="container">
+      <form class="form-signin" method="post" action="/login">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <p>
+          <label for="username" class="sr-only">Username</label>
+          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+        </p>
+        <p>
+          <label for="password" class="sr-only">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+        </p>
+<input name="_csrf" type="hidden" value="b32b5fc8-b348-4191-bd0d-6a71ac10dfb5" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+</div>
+</body></html>

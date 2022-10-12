@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface ClientRepository extends JpaRepository<Sender, String> {
 
-//    SenderApi findClientByTelephone(String telephone);
-//
-//    List<SenderApi> findAllBy();
+    ClientApi findClientByTelephone(String telephone);
+
+    List<ClientApi> findAllBy();
 
 }

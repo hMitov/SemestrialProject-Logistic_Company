@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Observable} from "rxjs";
 import {AgGridAngular} from "ag-grid-angular";
 import {CellClickedEvent, ColDef, GridReadyEvent} from "ag-grid-community";
-import {ShipmentApi, ShipmentService} from "../../../../angular-client";
 
 @Component({
   selector: 'app-nav-profile',
@@ -10,99 +11,25 @@ import {ShipmentApi, ShipmentService} from "../../../../angular-client";
 })
 export class NavProfileComponent implements OnInit {
 
-  public rowData: ShipmentApi[];
-  @ViewChild(AgGridAngular) agGrid: AgGridAngular;
+  public rowData$!: Observable<any[]>;
+  @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
 
   public columnDefs: ColDef[] = [
-    {headerName: 'ShipmentId', field: 'shipmentId'},
-    {headerName: 'Sender', field: 'sender'},
-    {headerName: 'Recipient', field: 'recipient'},
+    {headerName: '', field: 'make'},
+    {field: 'model'},
+    {field: 'price'}
   ];
 
   public defaultColDef: ColDef = {
-    editable: false,
     sortable: true,
-    resizable: true,
-    flex: 1,
-    minWidth: 100,
+    filter: true,
   };
 
-  constructor(private shipmentService: ShipmentService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.shipmentService.getAllShipments().subscribe(
-      (shipments: ShipmentApi[]) => {
-        this.rowData = shipments;
-      }
-    )
-    // this.rowData = [
-    //   {
-    //     ArtNo: "100",
-    //     Provider: "IPhone 11",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Apple",
-    //     Price: 7810.23,
-    //     BuyAccount: "123",
-    //   },
-    //   {
-    //     ArtNo: "101",
-    //     Provider: "Samsung galaxy",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Samsung",
-    //     Price: 2310.23,
-    //     BuyAccount: "123",
-    //   },
-    //   {
-    //     ArtNo: "102",
-    //     Provider: "Iphone 11 Pro",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Apple",
-    //     Price: 7810.23,
-    //     BuyAccount: "123",
-    //   },
-    //   {
-    //     ArtNo: "103",
-    //     Provider: "Intex",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Intex",
-    //     Price: 5810.23,
-    //     BuyAccount: "123",
-    //   },
-    //   {
-    //     ArtNo: "100",
-    //     Provider: "IPhone 11",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Apple",
-    //     Price: 7810.23,
-    //     BuyAccount: "123",
-    //   },
-    //   {
-    //     ArtNo: "101",
-    //     Provider: "Samsung galaxy",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Samsung",
-    //     Price: 2310.23,
-    //     BuyAccount: "123",
-    //   },
-    //   {
-    //     ArtNo: "102",
-    //     Provider: "Iphone 11 Pro",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Apple",
-    //     Price: 7810.23,
-    //     BuyAccount: "123",
-    //   },
-    //   {
-    //     ArtNo: "103",
-    //     Provider: "Intex",
-    //     ProviderArtNo: "1Yu",
-    //     Brand: "Intex",
-    //     Price: 5810.23,
-    //     BuyAccount: "123",
-    //   }
-    // ];
   }
 
 
