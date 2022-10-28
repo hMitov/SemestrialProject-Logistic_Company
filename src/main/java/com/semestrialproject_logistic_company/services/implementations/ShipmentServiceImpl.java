@@ -4,14 +4,12 @@ import com.semestrialproject_logistic_company.data.entity.Shipment;
 import com.semestrialproject_logistic_company.data.projections.ShipmentApi;
 import com.semestrialproject_logistic_company.data.repository.ShipmentRepository;
 import com.semestrialproject_logistic_company.services.ShipmentService;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
 public class ShipmentServiceImpl implements ShipmentService {
 
     @Autowired
