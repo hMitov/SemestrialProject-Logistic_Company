@@ -15,7 +15,6 @@ import java.util.Date;
 @NoArgsConstructor
 @MappedSuperclass
 public abstract class BaseEmployee implements Comparable<BaseEmployee> {
-
     @Id
     @Column(name = "egn")
     private Long egn;

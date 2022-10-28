@@ -19,8 +19,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @Api(tags = {"shipment"}, value = "Shipment", produces = APPLICATION_JSON_VALUE)
 @AllArgsConstructor
 public class ShipmentController {
-
-    @Autowired
     ShipmentService shipmentService;
 
     @RequestMapping(path = "/shipments/{id}", method = RequestMethod.GET)

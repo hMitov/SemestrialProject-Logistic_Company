@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
 @Setter
 @NoArgsConstructor
 @MappedSuperclass
-public abstract class BaseClient {
+public class BaseClient {
 
     @Column(name = "first_name")
     private String firstName;
@@ -31,4 +31,10 @@ public abstract class BaseClient {
         this.address = address;
     }
 
+    public BaseClient(String firstName, String lastName, String city, String address) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.city = city;
+        this.address = address;
+    }
 }
