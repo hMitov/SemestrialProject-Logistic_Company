@@ -31,3 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/semestrialproject_logistic_company/config/UpdateSwaggerClasses.java
+/src/main/resources/application.properties
