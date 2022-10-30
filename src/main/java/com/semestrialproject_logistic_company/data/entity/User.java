@@ -1,22 +1,24 @@
 package com.semestrialproject_logistic_company.data.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "User")
 public class User extends BaseClient {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "email")
     private String email;
 
@@ -26,11 +28,4 @@ public class User extends BaseClient {
     @Column(name = "telephone")
     private String telephone;
 
-    public User(String firstName, String lastName, String address, Long id, String telephone, String username,
-                String email, String password) {
-        super(firstName, lastName, address);
-        this.email = email;
-        this.password = password;
-        this.telephone = telephone;
-    }
 }

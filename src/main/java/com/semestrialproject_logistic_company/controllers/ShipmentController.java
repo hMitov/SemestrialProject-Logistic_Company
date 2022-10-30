@@ -5,7 +5,6 @@ import com.semestrialproject_logistic_company.services.ShipmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +16,6 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RestController
 @RequestMapping(path = "/api")
 @Api(tags = {"shipment"}, value = "Shipment", produces = APPLICATION_JSON_VALUE)
-@AllArgsConstructor
 public class ShipmentController {
 
     @Autowired
@@ -36,5 +34,4 @@ public class ShipmentController {
     public List<ShipmentApi> getAllShipments() {
         return shipmentService.getShipments();
     }
-
 }

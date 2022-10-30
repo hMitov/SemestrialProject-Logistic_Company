@@ -35,15 +35,15 @@ public class Shipment implements Comparable<Shipment> {
     @Column(name = "weight")
     private Double weight;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "sender_telephone")
     private Sender sender;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "recipient_telephone")
     private Recipient recipient;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "registered_by_employee")
     private OfficeEmployee registrant;
 

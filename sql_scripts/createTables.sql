@@ -27,7 +27,6 @@ drop table Sender;
 
 
 
-
 create table Recipient
 (
     telephone  VARCHAR(30) PRIMARY KEY NOT NULL,
@@ -38,7 +37,6 @@ create table Recipient
     email      VARCHAR(30)             NOT NULL
 );
 drop table Recipient;
-
 
 
 
@@ -61,7 +59,6 @@ drop table Shipment;
 
 
 
-
 create table office_employee
 (
     egn            VARCHAR(30) PRIMARY KEY NOT NULL,
@@ -73,3 +70,17 @@ create table office_employee
 );
 drop table office_employee;
 
+
+
+create table User
+(
+    id         INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name  VARCHAR(30) NOT NULL,
+    email      VARCHAR(30) NOT NULL,
+    password   VARCHAR(30) NOT NULL,
+    telephone  VARCHAR(30) NOT NULL,
+    address    VARCHAR(30) NOT NULL,
+    city       VARCHAR(30) NOT NULL
+);
+drop table User;
