@@ -7,4 +7,8 @@ public interface ShipmentApi {
     SenderApi getSender();
 
     RecipientApi getRecipient();
+
+    String getCity();
+
+    boolean getIsDelivered();
 }
