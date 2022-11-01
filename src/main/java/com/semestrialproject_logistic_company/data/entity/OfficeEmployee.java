@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Date;
 import java.util.Set;
 
 @Getter
@@ -17,12 +16,10 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "office_employee")
+@Table(name = "Office_Employee")
 public class OfficeEmployee extends BaseEmployee {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "registrant")
     private Set<Shipment> registeredShipments;
 
-    public OfficeEmployee(Long egn, String firstName, String middleName, String lastName, double salary, Date dateOfEmployee) {
-    }
 }
