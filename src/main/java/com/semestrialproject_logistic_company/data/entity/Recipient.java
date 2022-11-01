@@ -1,5 +1,6 @@
 package com.semestrialproject_logistic_company.data.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,11 +11,11 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "recipient")
-public class Recipient extends BaseClient implements Comparable<Recipient>{
+public class Recipient extends BaseClient implements Comparable<Recipient> {
 
-    @Id
     @Column(name = "telephone")
     private String telephone;
 
@@ -23,12 +24,6 @@ public class Recipient extends BaseClient implements Comparable<Recipient>{
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipient")
     private Set<Shipment> receivedShipments;
-
-    public Recipient(String firstName, String lastName, String address, String telephone, String email) {
-        super(firstName, lastName, address);
-        this.telephone = telephone;
-        this.email = email;
-    }
 
     @Override
     public int compareTo(Recipient recipient) {

@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
 
-    ShipmentApi findShipmentsByShipmentId(Long id);
+    ShipmentApi findShipmentsById(Long id);
 
     List<ShipmentApi> findShipmentsByRegistrant(OfficeEmployee registrant);
 
@@ -42,4 +42,6 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
     List<ShipmentApi> findAllByToAddressIsFalse();
 
     List<ShipmentApi> findAllByCityAndToAddress(String city, boolean toAddress);
+
+    List<ShipmentApi> findShipmentsByRecipientId(Long id);
 }

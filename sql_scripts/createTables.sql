@@ -16,9 +16,10 @@ drop table Carrier;
 
 create table Sender
 (
-    telephone  VARCHAR(30) PRIMARY KEY NOT NULL,
-    first_name VARCHAR(30)             NOT NULL,
-    last_name  VARCHAR(30)             NOT NULL,
+    id         INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    telephone  VARCHAR(30) NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    last_name  VARCHAR(30) NOT NULL,
     city       VARCHAR(30),
     address    VARCHAR(30),
     email      VARCHAR(30)
@@ -29,12 +30,13 @@ drop table Sender;
 
 create table Recipient
 (
-    telephone  VARCHAR(30) PRIMARY KEY NOT NULL,
-    first_name VARCHAR(30)             NOT NULL,
-    last_name  VARCHAR(30)             NOT NULL,
+    id         INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    telephone  VARCHAR(30) NOT NULL,
+    first_name VARCHAR(30) NOT NULL,
+    last_name  VARCHAR(30) NOT NULL,
     city       VARCHAR(30),
-    address    VARCHAR(30)             NOT NULL,
-    email      VARCHAR(30)             NOT NULL
+    address    VARCHAR(30) NOT NULL,
+    email      VARCHAR(30) NOT NULL
 );
 drop table Recipient;
 
@@ -42,18 +44,20 @@ drop table Recipient;
 
 create table Shipment
 (
-    shipment_id            INT PRIMARY KEY,
+    id                     INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     city                   VARCHAR(30) NOT NULL,
-    toOffice               BOOLEAN     NOT NULL,
-    toAddress              BOOLEAN     NOT NULL,
-    isProcessed            BOOLEAN     NOT NULL,
-    isDelivered            BOOLEAN     NOT NULL,
+    address                VARCHAR(30) NOT NULL,
+    to_office              BOOLEAN     NOT NULL,
+    to_address             BOOLEAN     NOT NULL,
+    is_processed           BOOLEAN     NOT NULL,
+    is_delivered           BOOLEAN     NOT NULL,
     weight                 DOUBLE      NOT NULL,
-    sender_telephone       VARCHAR(30) NOT NULL,
-    recipient_telephone    VARCHAR(30) NOT NULL,
+    sender                 INT         NOT NULL,
+    recipient              INT         NOT NULL,
     registered_by_employee VARCHAR(30),
-    FOREIGN KEY (sender_telephone) references Sender (telephone),
-    FOREIGN KEY (recipient_telephone) references Recipient (telephone)
+    delivered_date_time    DATETIME,
+    FOREIGN KEY (sender) references Sender (id),
+    FOREIGN KEY (recipient) references Recipient (id)
 );
 drop table Shipment;
 

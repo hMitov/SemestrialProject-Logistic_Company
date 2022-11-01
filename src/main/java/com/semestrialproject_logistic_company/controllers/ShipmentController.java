@@ -34,4 +34,14 @@ public class ShipmentController {
     public List<ShipmentApi> getAllShipments() {
         return shipmentService.getShipments();
     }
+
+
+    @GetMapping(value = "/recipient/{id}/all-shipments")
+    @ApiOperation(value = "Gets all shipments of recipient", nickname = "getShipmentsOfRecipient")
+    @ApiResponse(message = "Shipments", code = 200, response = ShipmentApi.class, responseContainer = "List")
+    public List<ShipmentApi> getShipmentsByRecipientId(@PathVariable Long id) {
+        return shipmentService.getShipmentsByRecipientId(id);
+    }
+
+
 }

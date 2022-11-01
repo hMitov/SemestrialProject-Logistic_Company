@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(User user) {
-        User loadedUser = this.userUtils.checkIfObjectExists(user);
+        User loadedUser = this.userUtils.checkIfUserExists(user);
         return userRepository.save(loadedUser);
     }
 }
