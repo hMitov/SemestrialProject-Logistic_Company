@@ -1,5 +1,6 @@
 package com.semestrialproject_logistic_company.data.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,13 +8,13 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "Carrier")
+@Table(name = "Supplier")
 public class Supplier extends BaseEmployee {
 
     @Column(name = "deliveryNumber")
@@ -25,17 +26,4 @@ public class Supplier extends BaseEmployee {
     @Column(name = "drivingLicenseCategory")
     private String drivingLicenseCategory;
 
-    public Supplier(Long egn, String firstName, String middleName, String lastName, Long deliveryNumber, String vehicleRegPlate, String drivingLicenseCategory) {
-        super(egn, firstName, middleName, lastName);
-        this.deliveryNumber = deliveryNumber;
-        this.vehicleRegPlate = vehicleRegPlate;
-        this.drivingLicenseCategory = drivingLicenseCategory;
-    }
-
-    public Supplier(Long egn, String firstName, String middleName, String lastName, double salary, Date dateOfEmploy, Long deliveryNumber, String vehicleRegPlate, String drivingLicenseCategory) {
-        super(egn, firstName, middleName, lastName, salary, dateOfEmploy);
-        this.deliveryNumber = deliveryNumber;
-        this.vehicleRegPlate = vehicleRegPlate;
-        this.drivingLicenseCategory = drivingLicenseCategory;
-    }
 }

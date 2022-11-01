@@ -10,9 +10,9 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@MappedSuperclass
 @AllArgsConstructor
-public class BaseClient {
+@MappedSuperclass
+public class BaseClient implements Comparable<BaseClient> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,4 +30,14 @@ public class BaseClient {
     @Column(name = "address")
     private String address;
 
+    @Column(name = "telephone")
+    private String telephone;
+
+    @Column(name = "email")
+    private String email;
+
+    @Override
+    public int compareTo(BaseClient baseClient) {
+        return this.telephone.compareTo(baseClient.getTelephone());
+    }
 }

@@ -1,23 +1,26 @@
 package com.semestrialproject_logistic_company.data.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @MappedSuperclass
 public class BaseEmployee implements Comparable<BaseEmployee> {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "egn")
-    private Long egn;
+    private String egn;
 
     @Column(name = "first_name")
     private String firstName;
@@ -34,25 +37,8 @@ public class BaseEmployee implements Comparable<BaseEmployee> {
     @Column(name = "date_of_employ")
     private Date dateOfEmploy;
 
-    public BaseEmployee(Long egn, String firstName, String middleName, String lastName) {
-        this.egn = egn;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = middleName;
-    }
-
-    public BaseEmployee(Long egn, String firstName, String middleName, String lastName, double salary, Date dateOfEmploy) {
-        this.egn = egn;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.lastName = lastName;
-        this.salary = salary;
-        this.dateOfEmploy = dateOfEmploy;
-    }
-
     @Override
     public int compareTo(BaseEmployee baseEmployee) {
         return this.egn.compareTo(baseEmployee.getEgn());
     }
-
 }

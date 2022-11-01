@@ -14,19 +14,9 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "recipient")
-public class Recipient extends BaseClient implements Comparable<Recipient> {
-
-    @Column(name = "telephone")
-    private String telephone;
-
-    @Column(name = "email")
-    private String email;
+public class Recipient extends BaseClient {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipient")
     private Set<Shipment> receivedShipments;
 
-    @Override
-    public int compareTo(Recipient recipient) {
-        return this.telephone.compareTo(recipient.telephone);
-    }
 }

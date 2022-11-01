@@ -1,16 +1,17 @@
-create table Carrier
+create table Supplier
 (
-    egn                    BIGINT PRIMARY KEY NOT NULL,
-    firstName              VARCHAR(30)        NOT NULL,
-    middleName             VARCHAR(30)        NOT NULL,
-    lastName               VARCHAR(30)        NOT NULL,
-    salary                 DOUBLE             NOT NULL,
-    dateOfEmploy           DATE               NOT NULL,
+    id                     INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    egn                    VARCHAR(30) NOT NULL,
+    firstName              VARCHAR(30) NOT NULL,
+    middleName             VARCHAR(30) NOT NULL,
+    lastName               VARCHAR(30) NOT NULL,
+    salary                 DOUBLE      NOT NULL,
+    dateOfEmploy           DATE        NOT NULL,
     deliveryNumber         INTEGER,
     vehicleRegPlate        VARCHAR(15),
     drivingLicenseCategory VARCHAR(15)
 );
-drop table Carrier;
+drop table Supplier;
 
 
 
@@ -63,16 +64,17 @@ drop table Shipment;
 
 
 
-create table office_employee
+create table Office_Employee
 (
-    egn            VARCHAR(30) PRIMARY KEY NOT NULL,
-    first_name     VARCHAR(30)             NOT NULL,
-    middle_name    VARCHAR(30)             NOT NULL,
-    last_name      VARCHAR(30)             NOT NULL,
-    salary         DOUBLE(10, 2)           NOT NULL,
+    id             INT           NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    egn            VARCHAR(30)   NOT NULL,
+    first_name     VARCHAR(30)   NOT NULL,
+    middle_name    VARCHAR(30)   NOT NULL,
+    last_name      VARCHAR(30)   NOT NULL,
+    salary         DOUBLE(10, 2) NOT NULL,
     date_of_employ DATE
 );
-drop table office_employee;
+drop table Office_Employee;
 
 
 
