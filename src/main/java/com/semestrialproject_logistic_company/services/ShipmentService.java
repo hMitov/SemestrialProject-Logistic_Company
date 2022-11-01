@@ -39,4 +39,6 @@ public interface ShipmentService {
     List<ShipmentApi> getAllByToAddressIsFalse();
 
     List<ShipmentApi> getShipmentsByCityAndToAddress(String city, boolean toAddress);
+
+    List<ShipmentApi> getShipmentsByRecipientId(Long id);
 }

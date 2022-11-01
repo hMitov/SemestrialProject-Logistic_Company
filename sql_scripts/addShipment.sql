@@ -1,16 +1,16 @@
-INSERT INTO Shipment (shipment_id, city, toOffice, toAddress, isProcessed, isDelivered, weight, sender_telephone,
-                      recipient_telephone, registered_by_employee)
-VALUES (1, 'Sofia', false, true, false, false, 150, '+359876245432', '+359874445231', null);
+INSERT INTO Shipment (city, address, to_Office, to_Address, is_processed, is_delivered, weight, sender,
+                      recipient, registered_by_employee, delivered_date_time)
+VALUES ('Sofia', 'st. Kozyak 6, Sofia', false, true, false, false, 150, 1, 2, null, '2022-03-05 15:07:45');
 
 
-INSERT INTO Shipment (shipment_id, city, toOffice, toAddress, isProcessed, isDelivered, weight, sender_telephone,
-                      recipient_telephone, registered_by_employee)
-VALUES (2, 'Plovdiv', true, false, true, false, 5, '+359875098998', '+359875098765', null);
+INSERT INTO Shipment (city, address, to_Office, to_Address, is_processed, is_delivered, weight, sender,
+                      recipient, registered_by_employee, delivered_date_time)
+VALUES ('Plovdiv', 'st. Borovo 15, Plovdiv', true, false, true, false, 5, 1, 3, null, '2021-10-09 16:10:33');
 
 
-INSERT INTO Shipment (shipment_id, city, toOffice, toAddress, isProcessed, isDelivered, weight, sender_telephone,
-                      recipient_telephone, registered_by_employee)
-VALUES (3, 'Sofia', false, true, true, true, 10, '+359874445422', '+359874445231', null);
+INSERT INTO Shipment (city, address, to_Office, to_Address, is_processed, is_delivered, weight, sender,
+                      recipient, registered_by_employee, delivered_date_time)
+VALUES ('Sofia', 'Yastrebec 8, Sofia', false, true, true, true, 10, 2, 1, null, '2022-01-09 11:50:05');
 
 
 select *

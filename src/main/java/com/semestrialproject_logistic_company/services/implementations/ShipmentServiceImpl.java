@@ -8,7 +8,6 @@ import com.semestrialproject_logistic_company.data.projections.ShipmentApi;
 import com.semestrialproject_logistic_company.data.repository.ShipmentRepository;
 import com.semestrialproject_logistic_company.services.ShipmentService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class ShipmentServiceImpl implements ShipmentService {
 
     @Override
     public ShipmentApi getShipment(Long id) {
-        return this.shipmentRepository.findShipmentsByShipmentId(id);
+        return this.shipmentRepository.findShipmentsById(id);
     }
 
     @Override
@@ -93,4 +92,11 @@ public class ShipmentServiceImpl implements ShipmentService {
     public List<ShipmentApi> getShipmentsByCityAndToAddress(String city, boolean toAddress) {
         return this.shipmentRepository.findAllByCityAndToAddress(city, toAddress);
     }
+
+    @Override
+    public List<ShipmentApi> getShipmentsByRecipientId(Long id) {
+        return this.shipmentRepository.findShipmentsByRecipientId(id);
+    }
+
+
 }
