@@ -7,4 +7,8 @@ public interface SenderApi {
     String getFirstName();
 
     String getLastName();
+
+    String getCity();
+
+    String getEmail();
 }

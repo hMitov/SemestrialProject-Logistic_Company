@@ -1,5 +1,8 @@
 package com.semestrialproject_logistic_company.data.entity;
 
+import com.semestrialproject_logistic_company.data.enums.ShipmentHeight;
+import com.semestrialproject_logistic_company.data.enums.ShipmentWidth;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,8 +13,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "shipment")
+@Table(name = "Shipment")
 public class Shipment implements Comparable<Shipment> {
 
     @Id
@@ -38,6 +42,12 @@ public class Shipment implements Comparable<Shipment> {
 
     @Column(name = "weight")
     private Double weight;
+
+    @Column(name = "shipment_height")
+    private ShipmentHeight shipmentHeight;
+
+    @Column(name = "shipment_width")
+    private ShipmentWidth shipmentWidth;
 
     @ManyToOne
     @JoinColumn(name = "sender")

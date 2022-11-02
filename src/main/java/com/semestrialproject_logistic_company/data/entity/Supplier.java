@@ -17,13 +17,13 @@ import javax.persistence.Table;
 @Table(name = "Supplier")
 public class Supplier extends BaseEmployee {
 
-    @Column(name = "deliveryNumber")
+    @Column(name = "delivery_number")
     private Long deliveryNumber;
 
-    @Column(name = "vehicleRegistrationPlate")
+    @Column(name = "vehicle_registration_plate")
     private String vehicleRegPlate;
 
-    @Column(name = "drivingLicenseCategory")
+    @Column(name = "driving_license_category")
     private String drivingLicenseCategory;
 
 }
