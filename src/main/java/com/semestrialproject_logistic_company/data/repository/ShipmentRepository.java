@@ -14,34 +14,34 @@ import java.util.List;
 @Repository
 public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
 
+    List<ShipmentApi> findAllBy();
+
     ShipmentApi findShipmentsById(Long id);
 
     List<ShipmentApi> findShipmentsByRegistrant(OfficeEmployee registrant);
 
-    List<ShipmentApi> findAllBy();
-
     List<ShipmentApi> findShipmentsBySender(Sender sender);
 
-    @Query("SELECT s FROM Shipment s WHERE s.isProcessed = true AND s.isDelivered = false")
-    List<ShipmentApi> findAllProcessedAndNotDelivered();
-
     List<ShipmentApi> findShipmentsByRecipient(Recipient recipient);
-
-    @Query("SELECT s FROM Shipment s WHERE s.isDelivered = true")
-    List<ShipmentApi> findAllDelivered();
 
     List<ShipmentApi> findAllByCity(String city);
 
     List<ShipmentApi> findAllByWeightGreaterThanEqual(Double weight);
-
-    @Query("SELECT s FROM Shipment s WHERE s.toOffice= true")
-    List<ShipmentApi> findAllToOffice();
 
     List<ShipmentApi> findAllByToOfficeIsFalse();
 
     List<ShipmentApi> findAllByToAddressIsFalse();
 
     List<ShipmentApi> findAllByCityAndToAddress(String city, boolean toAddress);
+
+    @Query("SELECT s FROM Shipment s WHERE s.isProcessed = true AND s.isDelivered = false")
+    List<ShipmentApi> findAllProcessedAndNotDelivered();
+
+    @Query("SELECT s FROM Shipment s WHERE s.isDelivered = true")
+    List<ShipmentApi> findAllDelivered();
+
+    @Query("SELECT s FROM Shipment s WHERE s.toOffice= true")
+    List<ShipmentApi> findAllToOffice();
 
     List<ShipmentApi> findShipmentsByRecipientId(Long id);
 }
